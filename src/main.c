@@ -13,6 +13,7 @@ int main(int argc, char *argv[]) {
     char *log_path = NULL;
     char *error_path = NULL;
     int opt;
+    int flagu, flagp = 0;
     int error_occurred = 0;
     char options[MAX_OPTIONS];
     int option_count = 0;
@@ -88,10 +89,16 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < option_count; i++) {
         switch (options[i]) {
             case 'u':
-                print_users();
+                if (!flagu){
+                    print_users();
+                    flagu = 1;
+                }
                 break;
             case 'p':
-                print_processes();
+                if (!flagp){
+                    print_processes();
+                    flagp = 1;
+                }
                 break;
             default:
                 break;
